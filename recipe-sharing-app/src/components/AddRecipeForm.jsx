@@ -20,13 +20,17 @@ const AddRecipeForm = () => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Title"
+          className="block mb-2 p-2 border rounded-2xl"
         />
         <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Description"
+          className="block mb-2 p-2 border`"
+          rows="4"
+          cols="50"
         />
-        <button type="submit">
+        <button type="submit" className="bg-blue-500 text-white p-2 rounded">
             Add Recipe
         </button>
       </form>
