@@ -6,8 +6,8 @@ const EditRecipeForm = ({ recipe }) => {
   const [description, setDescription] = useState(recipe.description);
   const updateRecipe = useRecipeStore((state) => state.updateRecipe);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     updateRecipe({ ...recipe, title, description });
   };
 
@@ -17,13 +17,13 @@ const EditRecipeForm = ({ recipe }) => {
         type="text"
         className="block mb-2 p-2 border"
         value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        onChange={(event) => setTitle(event.target.value)}
       />
 
       <textarea
-        className="block mb p2 border"
+        className="block mb-2 p-2 border"
         value={description}
-        onChange={(e) => setDescription(e.target.value)}
+        onChange={(event) => setDescription(event.target.value)}
       />
 
       <button type="submit" className="bg-blue-500 text-white p-2 rounded">
