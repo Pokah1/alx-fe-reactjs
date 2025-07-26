@@ -21,6 +21,7 @@ const AddRecipeForm = () => {
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Title"
           className="block mb-2 p-2 border rounded-2xl"
+          required
         />
         <textarea
           value={description}
@@ -29,6 +30,7 @@ const AddRecipeForm = () => {
           className="block mb-2 p-2 border`"
           rows="4"
           cols="50"
+          required
         />
         <button type="submit" className="bg-blue-500 text-white p-2 rounded">
             Add Recipe
