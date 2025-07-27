@@ -8,9 +8,16 @@ import { Link } from "react-router-dom";
     const searchTerm = useRecipeStore(state => state.searchTerm);
     const filterRecipes = useRecipeStore(state => state.filterRecipes);
 
+    const favorites = useRecipeStore(state => state.favorites);
+  const addFavorite = useRecipeStore(state => state.addFavorite);
+  const removeFavorite = useRecipeStore(state => state.removeFavorite);
+  const generateRecommendations = useRecipeStore(state => state.generatedRecommendations)
+
     useEffect(() => {
       filterRecipes();
     }, [searchTerm, filterRecipes]);
+
+      const isFavorite = (id) => favorites.includes(id);
 
     return (
       <div className="mt-4">
@@ -26,7 +33,25 @@ import { Link } from "react-router-dom";
               </Link>
               </h3>
             <p>{recipe.description}</p>
-            
+
+            {/*  */}
+             <button
+              onClick={() => {
+                if (isFavorite(recipe.id)) {
+                  removeFavorite(recipe.id);
+                } else {
+                  addFavorite(recipe.id);
+                }
+                generateRecommendations();
+              }}
+              className={`mt-2 px-3 py-1 rounded ${
+                isFavorite(recipe.id)
+                  ? "bg-red-500 text-white"
+                  : "bg-gray-300 text-black"
+              }`}
+            >
+              {isFavorite(recipe.id) ? "Remove Favorite" : "Add to Favorites"}
+            </button>
           </div>
         ))}
       </div>
