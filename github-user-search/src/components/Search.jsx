@@ -29,7 +29,7 @@ const Search = () => {
       }
     } catch (err) {
       console.error(err);
-      setError("No results found.");
+      setError("Looks like we can't find the user");
     } finally {
       setLoading(false);
     }
@@ -137,6 +137,7 @@ const Search = () => {
               />
               <div>
                 <h2 className="text-white font-semibold">{user.login}</h2>
+                
                 <a
                   href={user.html_url}
                   target="_blank"
