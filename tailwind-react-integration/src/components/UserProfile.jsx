@@ -6,7 +6,7 @@ function UserProfile() {
       <img
         src={avatar}
         alt="User"
-        className="rounded-full w-24 h-24 md:w-36 md:h-36 mx-auto transform hover:scale-110 transition-transform duration-300 ease-in-out"
+        className="rounded-full w-24 h-24 md:w-36 md:h-36 mx-auto transform hover:scale-110 transition-transform duration-300 ease-in-out sm:w-24 sm:h-24"
       />
       <h1 className="text-lg md:text-xl text-blue-800 my-4 text-center hover:text-blue-500 transition-colors duration-300 ease-in-out">
         John Doe
