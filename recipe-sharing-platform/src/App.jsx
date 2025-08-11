@@ -1,11 +1,9 @@
 
-function App() {
- 
-
+function  App () {
   return (
-   <div>
-    <h1 className="font-bold text-blue-500 ">Hello World, Welcome</h1>
-   </div>
+    <>
+    <h1 className="text-blue-500 font-bold">Hello World</h1>
+    </>
   )
 }
 
