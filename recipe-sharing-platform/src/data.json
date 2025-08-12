@@ -3,12 +3,65 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/400x300/4f46e5/ffffff?text=Spaghetti+Carbonara",
+    "prepTime": "15 minutes",
+    "cookTime": "20 minutes",
+    "servings": 4,
+    "ingredients": [
+      "400g spaghetti pasta",
+      "200g pancetta or bacon, diced",
+      "4 large eggs",
+      "100g Pecorino Romano cheese, grated",
+      "2 cloves garlic, minced",
+      "Fresh black pepper to taste",
+      "Salt for pasta water"
+    ],
+    "instructions": [
+      "Bring a large pot of salted water to boil and cook spaghetti according to package directions until al dente.",
+      "While pasta cooks, heat a large skillet over medium heat. Add pancetta and cook until crispy, about 5-7 minutes.",
+      "In a bowl, whisk together eggs, grated cheese, and a generous amount of black pepper.",
+      "When pasta is ready, reserve 1 cup of pasta water, then drain the pasta.",
+      "Add hot pasta to the skillet with pancetta. Remove from heat.",
+      "Quickly pour the egg mixture over the pasta, tossing continuously to create a creamy sauce. Add pasta water as needed.",
+      "Serve immediately with extra cheese and black pepper."
+    ]
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://via.placeholder.com/400x300/dc2626/ffffff?text=Chicken+Tikka+Masala",
+    "prepTime": "30 minutes",
+    "cookTime": "45 minutes",
+    "servings": 6,
+    "ingredients": [
+      "1 kg chicken breast, cut into chunks",
+      "1 cup plain yogurt",
+      "2 tbsp lemon juice",
+      "2 tsp garam masala",
+      "1 tsp ground cumin",
+      "1 can (400ml) coconut milk",
+      "1 can (400g) crushed tomatoes",
+      "1 large onion, diced",
+      "4 cloves garlic, minced",
+      "2 tbsp tomato paste",
+      "1 tbsp ginger, minced",
+      "2 tsp paprika",
+      "1 tsp ground coriander",
+      "Salt and pepper to taste",
+      "Fresh cilantro for garnish",
+      "Basmati rice for serving"
+    ],
+    "instructions": [
+      "Marinate chicken chunks in yogurt, lemon juice, 1 tsp garam masala, cumin, salt, and pepper for at least 30 minutes.",
+      "Heat oil in a large skillet over medium-high heat. Cook marinated chicken until golden and cooked through, about 6-8 minutes. Set aside.",
+      "In the same skillet, sauté onions until softened, about 5 minutes.",
+      "Add garlic, ginger, remaining garam masala, paprika, and coriander. Cook for 1 minute until fragrant.",
+      "Stir in tomato paste and cook for 2 minutes.",
+      "Add crushed tomatoes and simmer for 10 minutes until sauce thickens.",
+      "Pour in coconut milk and bring to a gentle simmer.",
+      "Return chicken to the skillet and simmer for 10-15 minutes.",
+      "Season with salt and pepper. Garnish with cilantro and serve over basmati rice."
+    ]
   }
 ]

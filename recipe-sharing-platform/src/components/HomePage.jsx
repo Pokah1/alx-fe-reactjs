@@ -1,19 +1,18 @@
 import { useState, useEffect } from 'react';
-import recipeData from "../data.json"
+import { Link } from "react-router-dom"
+import recipeData from "../data.json";
 
 const HomePage = () => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-
-
   useEffect(() => {
     const loadRecipeData = async () => {
       try {
         setLoading(true);
-       await new Promise(resolve => setTimeout(resolve, 500));
-       setRecipes(recipeData)
+        await new Promise(resolve => setTimeout(resolve, 500));
+        setRecipes(recipeData);
       } catch (error) {
         setError('Failed to load recipes');
         console.error('Error loading recipes:', error);
@@ -75,7 +74,7 @@ const HomePage = () => {
             {recipes.map((recipe) => (
               <div
                 key={recipe.id}
-                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer group"
+                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 group"
               >
                 {/* Recipe Image */}
                 <div className="relative overflow-hidden">
@@ -85,7 +84,8 @@ const HomePage = () => {
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300"></div>
+                  <div className="absolute inset-0 group-hover:bg-gray-hover:bg-opacity-10 transition-all duration-300"></div>
+
                 </div>
 
                 {/* Recipe Content */}
@@ -98,9 +98,12 @@ const HomePage = () => {
                   </p>
                   
                   {/* Action Button */}
-                  <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                  <Link
+                    to={`/recipe/${recipe.id}`}
+                    className="block w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md text-center transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                  >
                     View Recipe
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}
