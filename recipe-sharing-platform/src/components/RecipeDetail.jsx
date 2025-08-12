@@ -88,7 +88,15 @@ const RecipeDetail = () => {
           <div className="md:flex">
             {/* Recipe Image */}
             <div className="md:w-1/2">
-              
+              <div className="md:w-1/2">
+  {recipe.image && (
+    <img
+      src={recipe.image}
+      alt={recipe.title}
+      className="w-full h-full object-cover"
+    />
+  )}
+</div>
             </div>
             
             {/* Recipe Header Info */}
