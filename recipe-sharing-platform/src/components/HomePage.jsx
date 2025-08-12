@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import recipeData from "../data.json";
+import AddRecipeForm from "../components/AddRecipeForm"; // ✅ Import your form
 
 const HomePage = () => {
   const [recipes, setRecipes] = useState([]);
@@ -23,6 +24,11 @@ const HomePage = () => {
 
     loadRecipeData();
   }, []);
+
+  // Handle adding new recipes dynamically
+  const handleAddRecipe = (newRecipe) => {
+    setRecipes(prev => [...prev, { id: prev.length + 1, ...newRecipe }]);
+  };
 
   if (loading) {
     return (
@@ -61,6 +67,11 @@ const HomePage = () => {
         </div>
       </header>
 
+      {/* Add Recipe Form */}
+      <section className="max-w-3xl mx-auto px-4 py-8">
+        <AddRecipeForm onAddRecipe={handleAddRecipe} />
+      </section>
+
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {recipes.length === 0 ? (
@@ -84,8 +95,6 @@ const HomePage = () => {
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 group-hover:bg-gray-hover:bg-opacity-10 transition-all duration-300"></div>
-
                 </div>
 
                 {/* Recipe Content */}
@@ -96,8 +105,6 @@ const HomePage = () => {
                   <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
                     {recipe.summary}
                   </p>
-                  
-                  {/* Action Button */}
                   <Link
                     to={`/recipe/${recipe.id}`}
                     className="block w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md text-center transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
@@ -110,15 +117,6 @@ const HomePage = () => {
           </div>
         )}
       </main>
-
-      {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <p className="text-center text-gray-500 text-sm">
-            © 2024 Recipe Collection. Made with ❤️ for food lovers.
-          </p>
-        </div>
-      </footer>
     </div>
   );
 };
