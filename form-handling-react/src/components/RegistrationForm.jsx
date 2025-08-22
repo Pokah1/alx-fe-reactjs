@@ -1,64 +1,79 @@
-import React, {useState} from "react";
-import "../components/RegistrationForm.css"
-
+import React, { useState } from "react";
+import "../components/RegistrationForm.css";
 
 const RegistrationForm = () => {
-    const [username, setUsername] = useState("")
-    const [email, setEmail]= useState("")
-    const [password, setPassword] = useState("")
-    const [error, setError] = useState("")
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState("");
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-        if (!username || !email || !password) {
-            setError("All fields are required.");
-            return;
-        }
+    let validationErros = {};
 
-        setError("");
-        console.log("Form submitted:", { username, email, password });
-    };
+    if (!username) {
+      validationErros.username = "Username is required.";
+    }
 
-    return (
-   <form onSubmit={handleSubmit} className="form-container">
-    <h2>Register</h2>
+    if (!email) {
+      validationErros.email = "Email is required.";
+    }
 
-    {error && <p className="error">{error}</p>}
+    if (!password) {
+      validationErros.password = "Password is required.";
+    }
 
-    <div className="form-group">
+    if (Object.keys(validationErros).length > 0) {
+      setErrors(validationErros);
+      return;
+    }
+
+    setErrors({});
+    console.log("Form submitted:", { username, email, password });
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="form-container">
+      <h2>Register</h2>
+
+      {errors.username && <p className="error">{errors.username}</p>}
+      {errors.email && <p className="error">{errors.email}</p>}
+      {errors.password && <p className="error">{errors.password}</p>}
+      
+
+      <div className="form-group">
         <label htmlFor="Username">Username</label>
-        <input 
-        type="text" 
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
         />
-    </div>
+      </div>
 
-    <div className="form-group">
+      <div className="form-group">
         <label htmlFor="Email">Email</label>
-        <input 
-        type="text" 
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        <input
+          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
-    </div>
+      </div>
 
-     <div className="form-group">
+      <div className="form-group">
         <label htmlFor="Password">Password</label>
-        <input 
-        type="password" 
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
-    </div>
+      </div>
 
-     <button type="submit" className="submit-btn">
-            Submit
-        </button>
-   </form>
-
-    )
-}
+      <button type="submit" className="submit-btn">
+        Submit
+      </button>
+    </form>
+  );
+};
 
 export default RegistrationForm;
